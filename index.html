@@ -10,12 +10,12 @@
 
   <title>Bootstrap 5.3 Dark & Light Mode Theme Demo</title>
 
-	<script>
-	window.addEventListener('load', function() {
-	    var height = document.body.offsetHeight;
-	    window.parent.postMessage({ height: height }, 'https://demos.discountplr.com'); // Replace with your parent domain
-	});
-	</script>
+    <script>
+        window.addEventListener('load', function() {
+            var height = document.documentElement.scrollHeight;
+            window.parent.postMessage({ height: height }, 'https://demos.discountplr.com/'); // Use '*' for testing, replace with your actual parent domain in production
+        });
+    </script>
 	
 </head>
 <body>
