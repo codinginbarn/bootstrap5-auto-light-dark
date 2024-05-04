@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <title>Dark Mode Demo</title>
+</head>
+<body>
+
+  <div class="container mt-4">
+    <h1>Bootstrap Dark Mode Demo</h1>
+    <p>This simple JavaScript is designed for Bootstrap 5.3 + and modern browsers. The buttons below are just for testing and not used in production (although they could with little modification).</p>
+    <p>We use the "Window.matchMedia" method in combination with the "CSS prefers-color-scheme" media feature to determine if the user has indicated the preference for a dark color scheme.</p>
+    <h2>How it Works:</h2>
+    <p>If the user has their system preference for a dark color scheme, set the data-bs-theme attribute to "dark" on the html tag. Please note that data-bs-theme is not a native Bootstrap -5.3 attribute – you'll need to implement the actual styling behavior corresponding to this attribute yourself if not using 5.3+.</p>
+	  <p>The JavaScript automatically controls the < html lang="en" data-bs-theme="dark" > or < html lang="en" data-bs-theme="light" >
+    <h2>Compatibility:</h2>
+    <p>The Window.matchMedia method in combination with the CSS prefers-color-scheme media feature works on modern web browsers on Windows, macOS and Linux desktops. The feature should work on modern mobile browsers on both Android and iOS. On iOS, starting from iOS 13, users can choose their preferred color scheme.</p>
+    <p>However, note that this is a relatively new feature, and older browsers may not support it. It's always good to provide a fallback for users on these browsers IF you wish to support them.</p>
+    <h2>What you Need:</h2>
+    <p><b>Bootstrap 5.3 + CSS:</b></p>
+    <pre>
+		&lt;!-- Bootstrap CSS --&gt;
+		&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4Ys8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" /&gt;
+    </pre>
+
+    <p><b>Bootstrap 5.3 + Bundle JS:</b></p>
+    <pre>
+		&lt;!-- Bootstrap JS --&gt;
+		&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg==" crossorigin="anonymous" referrerpolicy="no-referrer"&gt;&lt;/script&gt;
+    </pre>
+  </div>  
+
+  <div class="container mt-4">
+    <h2>Demonstration:</h2>
+	<button id="checkDarkMode" class="btn btn-primary">Check Dark Mode</button>
+    <button id="switchToLight" class="btn btn-secondary">Switch to Light Mode</button>
+    <button id="switchToDark" class="btn btn-dark">Switch to Dark Mode</button>
+  </div>
+  
+  <div class="container mt-4">
+    <h2>Paste the below code above your < /body > tag.</h2>
+	<textarea id="myText" cols="30" rows="10" class="form-control">
+&lt;script&gt;
+  // This script is designed for Bootstrap 5.3 +
+  window.addEventListener('DOMContentLoaded', (event) =&gt; {
+	const prefersDark = window.matchMedia &amp;&amp; window.matchMedia('(prefers-color-scheme: dark)').matches;
+	if (prefersDark) {
+	  document.documentElement.setAttribute("data-bs-theme", "dark");
+	}
+  });
+&lt;/script&gt;
+    </textarea>
+    <button id="copyButton" class="btn btn-info btn-sm float-end mt-2">Copy Code to Clipboard</button>
+    <div id="message" style="visibility: hidden; color: green; font-size: 2.0rem;margin-top: 10px;">Copied!</div>
+  </div>
+  
+  <script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+      // Check the user's preferred color scheme
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      // If the user prefers a dark color scheme, set the attribute accordingly
+      if (prefersDark) {
+        document.documentElement.setAttribute("data-bs-theme", "dark");
+      }
+
+      document.getElementById('checkDarkMode').addEventListener('click', function() {
+        if (document.documentElement.getAttribute("data-bs-theme") === "dark") {
+          alert("Dark mode is enabled!");
+        } else {
+          alert("Dark mode is not enabled!");
+        }
+      });
+
+      document.getElementById('switchToLight').addEventListener('click', function() {
+        document.documentElement.setAttribute("data-bs-theme", "light");
+        alert("Switched to light mode!");
+      });
+
+      document.getElementById('switchToDark').addEventListener('click', function() {
+        document.documentElement.setAttribute("data-bs-theme", "dark");
+        alert("Switched to dark mode!");
+      });
+    });
+	
+	    document.getElementById("copyButton").addEventListener("click", function() {
+      var copyText = document.getElementById("myText");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); // For mobile devices
+
+      document.execCommand("copy");
+      
+      var messageElement = document.getElementById("message");
+      messageElement.style.visibility = "visible";
+      setTimeout(function() {
+        messageElement.style.visibility = "hidden";
+      }, 3000); // Message disappears after 3 seconds
+    });
+	
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+</body>
+</html>
