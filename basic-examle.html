@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap 5.3 Example</title>
+    <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <h1>Hello, from DiscountPLR.com!</h1>
+        <p>This is a basic example page for Bootstrap 5.3 using auto dark / light theme based on users system settings.</p>
+		<p>If your system preferences is set to dark, this theme is automatically dark. Same for light, will be light theme if system is set to normal. Here are some button examples:</p>
+        <p><button class="btn btn-default">Default</button>
+        <button class="btn btn-primary">Primary</button>
+        <button class="btn btn-secondary">Secondary</button>
+        <button class="btn btn-success">Success</button>
+        <button class="btn btn-danger">Danger</button>
+        <button class="btn btn-warning">Warning</button>
+        <button class="btn btn-info">Info</button>
+        <button class="btn btn-light">Light</button>
+        <button class="btn btn-dark">Dark</button>
+        <button class="btn btn-link">Link</button>
+        <button class="btn btn-outline-primary">Outline Primary</button>
+        <button class="btn btn-outline-secondary">Outline Secondary</button>
+        <button class="btn btn-outline-success">Outline Success</button>
+        <button class="btn btn-outline-danger">Outline Danger</button>
+        <button class="btn btn-outline-warning">Outline Warning</button>
+        <button class="btn btn-outline-info">Outline Info</button>
+        <button class="btn btn-outline-light">Outline Light</button>
+        <button class="btn btn-outline-dark">Outline Dark</button>
+        <button class="btn btn-primary btn-lg">Large Primary</button>
+        <button class="btn btn-primary btn-sm">Small Primary</button>
+        <button class="btn btn-primary btn-block">Block Primary</button>
+        <button class="btn btn-primary active">Active Primary</button>
+        <button class="btn btn-primary disabled">Disabled Primary</button></p>
+		<p>More resources at <a href="https://discountplr.com" style="text-decoration:none;" target="_blank" title="More Free Resources">DiscountPLR.com</a></p>
+    </div>
+    <!-- Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  	<script>
+		  // This script is designed for Bootstrap 5.3 +
+		  window.addEventListener('DOMContentLoaded', (event) => {
+			const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+			if (prefersDark) {
+			  document.documentElement.setAttribute("data-bs-theme", "dark");
+			}
+		  });
+	</script>
+</body>
+</html>
